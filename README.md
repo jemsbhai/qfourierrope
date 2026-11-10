@@ -31,7 +31,7 @@ Four pairs only, no threshold claimed. Two honest observations: benzene vs cyclo
 
 ## Status
 
-Hackathon prototype (v0.1.0). Spectral fingerprint, classical overlap reference, and SWAP-test circuits (monolithic and per-coefficient) implemented and unit-tested; distribution and noise studies complete as above. Next: record-length scaling of the collision rate, more coefficients, magnitude-aware features.
+Hackathon prototype (v0.1.0). Spectral fingerprint, classical overlap reference, and SWAP-test circuits (monolithic and per-coefficient) implemented and unit-tested; distribution and noise studies complete as above. First hardware run done 2026-11-10 on ibm_fez (see HARDWARE.md): distinct pairs at the floor as simulated, identical pair contracted to 0.3506 monolithic and 0.2287 decomposed. Next: record-length scaling of the collision rate, more coefficients, magnitude-aware features.
 
 ## Layout
 

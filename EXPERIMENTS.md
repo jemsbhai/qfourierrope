@@ -98,3 +98,15 @@ circuit). Next steps, in order: record-length scaling of the collision
 rate; more coefficients (K = 24) and magnitude-aware features; the
 phase-code question. A hardware run is premature until the noise story
 improves in simulation.
+
+## Hardware follow-up (2026-11-10, ibm_fez; see HARDWARE.md)
+
+A first hardware run was made the same day, ahead of the sequencing
+suggested above, as a validation datapoint. It confirms the simulation
+story on a device: distinct pairs sit at the floor (0.0122 against
+0.0129 exact; 0.0000 for benzene vs cyclohexane), the identical pair
+contracts harder than the p = 0.02 model predicts (0.3506 monolithic
+against 0.6123 simulated), and the decomposed form is again worse than
+the monolithic form (0.2287), with per-coefficient P(0) uniformly
+0.932 to 0.949 showing the same compounding mechanism. No threshold is
+claimed; the phase-code question stands.

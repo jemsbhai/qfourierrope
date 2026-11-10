@@ -1,0 +1,74 @@
+{
+  "backend": "ibm_fez",
+  "shots_per_circuit": 4096,
+  "pairs": [
+    {
+      "pair_id": "dna_identical",
+      "exact_overlap": 1.0,
+      "monolithic_hardware": {
+        "p0": 0.6753,
+        "overlap_est": 0.3506
+      },
+      "decomposed_hardware": {
+        "per_coefficient_p0": [
+          0.9409,
+          0.9487,
+          0.9487,
+          0.936,
+          0.9324,
+          0.9434,
+          0.9397,
+          0.948,
+          0.9402,
+          0.9414,
+          0.9453,
+          0.9414
+        ],
+        "overlap_est": 0.2287
+      }
+    },
+    {
+      "pair_id": "dna_1sub",
+      "exact_overlap": 0.7084083112751193,
+      "monolithic_hardware": {
+        "p0": 0.6345,
+        "overlap_est": 0.269
+      },
+      "decomposed_hardware": {
+        "per_coefficient_p0": [
+          0.9087,
+          0.929,
+          0.9373,
+          0.9409,
+          0.9258,
+          0.9185,
+          0.9336,
+          0.9204,
+          0.9309,
+          0.905,
+          0.9336,
+          0.9412
+        ],
+        "overlap_est": 0.1501
+      }
+    },
+    {
+      "pair_id": "dna_10sub",
+      "exact_overlap": 0.012945165831247383,
+      "monolithic_hardware": {
+        "p0": 0.5061,
+        "overlap_est": 0.0122
+      },
+      "decomposed_hardware": null
+    },
+    {
+      "pair_id": "benzene_vs_cyclohexane",
+      "exact_overlap": 2.87506386975962e-34,
+      "monolithic_hardware": {
+        "p0": 0.5,
+        "overlap_est": 0.0
+      },
+      "decomposed_hardware": null
+    }
+  ]
+}

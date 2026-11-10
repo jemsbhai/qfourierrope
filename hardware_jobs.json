@@ -1,0 +1,147 @@
+{
+  "backend": "ibm_fez",
+  "shots_per_circuit": 4096,
+  "submitted_at_utc": "2026-11-10T16:11:50.564568+00:00",
+  "jobs": [
+    {
+      "kind": "monolithic",
+      "job_id": "dbpk4i5t7fqc7389j2tg",
+      "pairs": [
+        {
+          "pair_id": "dna_identical",
+          "label": "DNA identical",
+          "exact_overlap": 1.0
+        },
+        {
+          "pair_id": "dna_1sub",
+          "label": "DNA 1 substitution",
+          "exact_overlap": 0.7084083112751193
+        },
+        {
+          "pair_id": "dna_10sub",
+          "label": "DNA 10 substitutions",
+          "exact_overlap": 0.012945165831247383
+        },
+        {
+          "pair_id": "benzene_vs_cyclohexane",
+          "label": "benzene vs cyclohexane",
+          "exact_overlap": 2.87506386975962e-34
+        }
+      ]
+    },
+    {
+      "kind": "decomposed",
+      "job_id": "dbpk4i8ou4as73ctqohg",
+      "circuits": [
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 0
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 1
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 2
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 3
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 4
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 5
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 6
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 7
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 8
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 9
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 10
+        },
+        {
+          "pair_id": "dna_identical",
+          "coefficient": 11
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 0
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 1
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 2
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 3
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 4
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 5
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 6
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 7
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 8
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 9
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 10
+        },
+        {
+          "pair_id": "dna_1sub",
+          "coefficient": 11
+        }
+      ],
+      "pairs": [
+        {
+          "pair_id": "dna_identical",
+          "label": "DNA identical",
+          "exact_overlap": 1.0
+        },
+        {
+          "pair_id": "dna_1sub",
+          "label": "DNA 1 substitution",
+          "exact_overlap": 0.7084083112751193
+        }
+      ]
+    }
+  ]
+}
