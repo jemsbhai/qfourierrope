@@ -22,11 +22,16 @@ qfourierrope takes that route. The record is split into blocks and hashed with p
 | DNA, 10 substitutions | 0.0073 | 0.0129 |
 | Benzene vs cyclohexane | 0.0063 | 0.0000 |
 
-Four pairs only, no threshold claimed. Two honest observations: benzene vs cyclohexane, the pair whose fingerprints collided under qhashrope's original encoding, separates cleanly here; and a single substitution already moves the overlap to about 0.71, because one changed block changes the whole spectrum. Near-duplicate sensitivity is therefore the hard case for this fingerprint, the opposite profile from a locality-preserving hash, and characterising it is the immediate next step: the same use-case suites qhashrope ran (molecular identity, genomic identity, record linkage, replica equality), then, if the separation holds up, a per-coefficient decomposed variant under noise, importing qhashrope's two-server lesson: small circuits plus decision-level recombination survive noise that kills a monolithic circuit.
+Four pairs only, no threshold claimed. Two honest observations: benzene vs cyclohexane, the pair whose fingerprints collided under qhashrope's original encoding, separates cleanly here; and a single substitution already moves the overlap to about 0.71, because one changed block changes the whole spectrum. Near-duplicate sensitivity is therefore the hard case for this fingerprint, the opposite profile from a locality-preserving hash.
+
+## Experiment results (2026-11-10, see EXPERIMENTS.md)
+
+- **Distribution (exact overlaps):** independent 192-byte records never exceeded 0.0303 in 200 pairs, so exact-equality separation on long records is wide. But the overlap is not a similarity measure: it is non-monotonic in edit count (median 0.48 at 1 substitution, 0.81 at 2), and short records can collide: benzene vs pyridine, two distinct molecules, measure 0.9230.
+- **Noise (Aer, depolarizing p = 0.02):** the identical pair contracts to 0.6123 in the monolithic circuit and to 0.4191 in the per-coefficient decomposed form. Decomposition makes it worse, because each small circuit's contraction compounds in the product (about 0.93^12), the same failure as qhashrope's analog product recombination. qhashrope's decomposition works because it recombines decisions under an error-correcting code; this fingerprint has no code, so it has no decision level to recombine at. Finding a phase fingerprint code with a cheap preparation circuit is the open problem both projects now point at.
 
 ## Status
 
-Hackathon prototype (v0.1.0). Spectral fingerprint, classical overlap reference, and the SWAP-test circuit are implemented, unit-tested, and measured as above.
+Hackathon prototype (v0.1.0). Spectral fingerprint, classical overlap reference, and SWAP-test circuits (monolithic and per-coefficient) implemented and unit-tested; distribution and noise studies complete as above. Next: record-length scaling of the collision rate, more coefficients, magnitude-aware features.
 
 ## Layout
 

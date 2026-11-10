@@ -1,0 +1,38 @@
+{
+  "p_noise": 0.02,
+  "shots": 4096,
+  "pairs": [
+    {
+      "pair": "DNA identical",
+      "exact_overlap": 1.0,
+      "monolithic_noiseless": 1.0,
+      "decomposed_noiseless": 1.0,
+      "monolithic_p0.02": 0.6123046875,
+      "decomposed_p0.02": 0.41910463669428316
+    },
+    {
+      "pair": "DNA 1 substitution",
+      "exact_overlap": 0.7084083112751193,
+      "monolithic_noiseless": 0.71533203125,
+      "decomposed_noiseless": 0.7191405205945762,
+      "monolithic_p0.02": 0.42626953125,
+      "decomposed_p0.02": 0.30329040558667414
+    },
+    {
+      "pair": "DNA 10 substitutions",
+      "exact_overlap": 0.012945165831247383,
+      "monolithic_noiseless": 0.0283203125,
+      "decomposed_noiseless": 0.01444823260608661,
+      "monolithic_p0.02": 0.00830078125,
+      "decomposed_p0.02": 0.006503255727952926
+    },
+    {
+      "pair": "benzene vs cyclohexane",
+      "exact_overlap": 2.87506386975962e-34,
+      "monolithic_noiseless": 0.01416015625,
+      "decomposed_noiseless": 0.0011312073720035733,
+      "monolithic_p0.02": 0.0,
+      "decomposed_p0.02": 0.0007774366014339038
+    }
+  ]
+}
