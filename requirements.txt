@@ -1,0 +1,4 @@
+qiskit>=1.0
+qiskit-aer
+qiskit-ibm-runtime
+numpy
