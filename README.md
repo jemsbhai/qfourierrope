@@ -47,7 +47,7 @@ Environment: Python 3.12, Qiskit 2.6.2, Aer 0.18.2 (see `requirements.txt`).
 
 ```bash
 pip install -r requirements.txt
-python tests/test_spectral.py   # 10 tests; runs real Aer circuits, takes a few minutes
+python tests/test_spectral.py   # 2 tests for the fingerprint construction; prints "2 passed"
 python run_prototype.py         # the four prototype pairs, measured vs exact
 python exp_distribution.py      # Study 1: overlap distribution -> distribution_results.json
 python exp_noise.py             # Study 2: noise, monolithic vs decomposed -> noise_results.json
