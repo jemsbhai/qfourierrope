@@ -1,6 +1,6 @@
 # qfourierrope
 
-**Spectral phase fingerprints for quantum equality testing.** Two parties hold a record and want one bit, identical or not, without moving the records: each side fingerprints its record locally and only the fingerprint travels. qfourierrope fingerprints a record by the phases of its block-hash spectrum and compares two fingerprints with a SWAP test. It is a spin-off of [qhashrope](https://github.com/jemsbhai/qhashrope) that takes the phase-fingerprint route qhashrope's README identifies as the path to a quantum communication advantage, and measures whether it works. Built by Muntaser Syed for the DeepStation edition of Qiskit Fall Fest 2026.
+**Spectral phase fingerprints for quantum equality testing.** Two parties hold a record and want one bit, identical or not, without moving the records: each side fingerprints its record locally and only the fingerprint travels. qfourierrope fingerprints a record by the phases of its block-hash spectrum and compares two fingerprints with a SWAP test. It is a spin-off of [qhashrope](https://github.com/jemsbhai/qhashrope) that takes the phase-fingerprint route qhashrope's README identifies as the path to a quantum communication advantage, and measures whether it works. Built by Muntaser Syed for the UCF edition of Qiskit Fall Fest 2026.
 
 ## Headline results (all measured 2026-11-10; raw data in the repo)
 
@@ -27,6 +27,8 @@
 | Benzene vs cyclohexane | 0.0000 | 0.0000 | not run |
 
 The device confirms the simulation story: distinct pairs sit at the floor, the identical pair contracts harder than the p = 0.02 model predicts, and the decomposed form is again worse than the monolithic form, with per-coefficient P(0) uniformly 0.932 to 0.949 showing the same compounding mechanism. No threshold is claimed anywhere in this repo.
+
+**Two-silo dedup at population scale (2026-11-11; `exp_dedup.py`, `dedup_results.json`, framing in `ADVANTAGE.md`):** two silos of 2,000 records each (192-byte slices of the E. coli K-12 reference genome), 200 records planted in both, all 4,000,000 cross pairs scored. Every planted duplicate recovered at overlap exactly 1.0000; zero false equals; the closest distinct pair in all 4M pairs reaches 0.7555 exact (a near-repeat region of the genome) and measures 0.7686 through the actual SWAP-test circuit, against duplicates measuring exactly 1.0000. `gpu_validate.py` extends the circuit-level check to the full duplicate population on a GPU (cuStateVec via qiskit-aer-gpu).
 
 ## The idea
 
@@ -66,7 +68,7 @@ First run 2026-11-10 on **ibm_fez** (156-qubit Heron r2), SamplerV2, 4,096 shots
 
 ## Status
 
-Hackathon prototype (v0.1.0). Spectral fingerprint, classical overlap reference, and SWAP-test circuits (monolithic and per-coefficient) implemented and unit-tested; distribution and noise studies complete; first hardware run done. Next: record-length scaling of the collision rate, more coefficients, magnitude-aware features.
+Hackathon prototype (v0.1.0). Spectral fingerprint, classical overlap reference, and SWAP-test circuits (monolithic and per-coefficient) implemented and unit-tested; distribution and noise studies complete; first hardware run done; Study 3 (two-silo dedup, 4M pairs, real genome) complete 2026-11-11. Next: GPU validation of the full duplicate population, more coefficients, magnitude-aware features, and the phase-code question.
 
 ## Layout
 
@@ -76,6 +78,9 @@ Hackathon prototype (v0.1.0). Spectral fingerprint, classical overlap reference,
 - `run_prototype.py`: identical vs distinct record overlaps, measured and exact.
 - `exp_distribution.py`, `exp_noise.py`: the two studies in `EXPERIMENTS.md`; outputs in `distribution_results.json`, `noise_results.json`.
 - `submit_hardware.py`, `retrieve_hardware.py`: the ibm_fez run; outputs in `hardware_jobs.json`, `hardware_results.json`.
+- `exp_dedup.py`, `circuit_hardest.py`: Study 3, the two-silo dedup run; output in `dedup_results.json`; corpus `ecoli_k12.fna.gz` (NCBI RefSeq GCF_000005845.2, downloaded by the script if absent).
+- `ADVANTAGE.md`: the quantum fingerprinting advantage claim, stated exactly, with its model and its limits.
+- `gpu_validate.py`: circuit-level validation of the full duplicate population on GPU (qiskit-aer-gpu / cuStateVec); output in `gpu_validation_results.json`.
 - `tests/`: unit tests for the fingerprint construction.
 
 ## License

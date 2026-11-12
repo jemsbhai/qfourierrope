@@ -99,6 +99,70 @@ rate; more coefficients (K = 24) and magnitude-aware features; the
 phase-code question. A hardware run is premature until the noise story
 improves in simulation.
 
+## Study 3: two-silo dedup at population scale (2026-11-11)
+
+Question: does the fingerprint-only matching protocol work end to end
+when the pair count is in the millions and the corpus is a real genome
+with genuine near-repeats, not synthetic records? `exp_dedup.py`; raw
+data `dedup_results.json`; framing and claim scope in `ADVANTAGE.md`.
+
+Design: Silo A and Silo B hold 2,000 records each, 192-byte contiguous
+slices of the E. coli K-12 MG1655 reference genome (NC_000913.3).
+200 seeded Silo A records are planted in Silo B (the shared set); the
+rest of Silo B is fresh slices. All 4,000,000 cross pairs scored by
+exact overlap. Circuit checks on Aer (4096 shots): 12 planted
+duplicates, and the 12 distinct pairs with the highest exact overlaps
+in the full matrix (patched in by `circuit_hardest.py`; the first
+run's hardest-pair selection had a masked-array indexing error, since
+fixed in `exp_dedup.py`; the exact matrix results were unaffected).
+
+Results:
+
+- Duplicates: 200 of 200 recovered at overlap > 0.999999. Every
+  duplicate sits at exactly 1.0000, and the 12 circuit-checked
+  duplicates measure exactly 1.0000.
+- False equals: 0 in 4,000,000 pairs.
+- Closest distinct pairs in the full matrix, exact then measured:
+
+| Exact | Measured (Aer) |
+|---|---|
+| 0.7555 | 0.7686 |
+| 0.7136 | 0.7139 |
+| 0.4581 | 0.4639 |
+| 0.4374 | 0.4580 |
+| 0.3956 | 0.4185 |
+| 0.3886 | 0.3892 |
+| 0.3839 | 0.3965 |
+| 0.3699 | 0.4062 |
+| 0.3688 | 0.3862 |
+| 0.3672 | 0.3516 |
+| 0.3619 | 0.3311 |
+| 0.3598 | 0.3721 |
+
+- Length sweep (500 fresh independent pairs per length): worst
+  distinct overlap 0.0261 (64 B), 0.0154 (192 B), 0.0183 (1,024 B),
+  0.0278 (4,096 B); medians at or below 1e-12.
+
+Findings:
+
+1. **The protocol separates a real corpus completely.** On 4M real
+   pairs the duplicate floor (exactly 1.0) and the distinct ceiling
+   (0.7555) leave a margin of 0.24, and the circuit reproduces it
+   (worst distinct pair measures 0.7686; duplicates measure 1.0000).
+   Any decision threshold inside (0.756, 1.0) classifies this corpus
+   perfectly; the study reports the measured margin rather than
+   fixing a threshold.
+2. **The tail risk is genomic near-repeats, not random pairs.** Random
+   independent pairs never exceeded 0.028 at any length in the sweep.
+   The two pairs above 0.7 come from repeated regions of the genome:
+   records that genuinely are near-copies. Population-scale scoring,
+   not pair sampling, is what finds them.
+3. **Circuit measurement tracks the exact overlap closely** (all 12
+   hardest pairs within 0.04), so the exact matrix is a faithful
+   proxy for the noiseless circuit at this size; noise and hardware
+   contraction remain governed by Studies 1-2 and the hardware
+   follow-up, and are the referee's real margin problem at deployment.
+
 ## Hardware follow-up (2026-11-10, ibm_fez; see HARDWARE.md)
 
 A first hardware run was made the same day, ahead of the sequencing

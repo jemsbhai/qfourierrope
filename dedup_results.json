@@ -1,0 +1,162 @@
+{
+  "study": "two-silo dedup, fingerprint-only matching",
+  "corpus": "E. coli K-12 MG1655 (NC_000913.3), contiguous slices",
+  "seed": 20261111,
+  "record_len_bytes": 192,
+  "silo_sizes": {
+    "A": 2000,
+    "B": 2000
+  },
+  "planted_duplicates": 200,
+  "cross_pairs_scored": 4000000,
+  "duplicates_recovered_at_overlap_gt_0.999999": 200,
+  "false_equals_at_overlap_gt_0.999999": 0,
+  "duplicate_overlap_min": 1.0,
+  "max_distinct_overlap": 0.7555459378403924,
+  "circuit_check_aer_4096_shots": [
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "duplicate",
+      "exact": 1.0,
+      "measured": 1.0
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.7555459378403924,
+      "measured": 0.7685546875
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.7135657422095402,
+      "measured": 0.7138671875
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.4580761272795862,
+      "measured": 0.4638671875
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.43742887478407055,
+      "measured": 0.4580078125
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.39560956694931404,
+      "measured": 0.41845703125
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.38861043190485284,
+      "measured": 0.38916015625
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.38393485032730884,
+      "measured": 0.396484375
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.3699438340682148,
+      "measured": 0.40625
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.3688256040066034,
+      "measured": 0.38623046875
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.36719328976709764,
+      "measured": 0.3515625
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.3619231952101009,
+      "measured": 0.3310546875
+    },
+    {
+      "kind": "distinct_hardest",
+      "exact": 0.3598414310395907,
+      "measured": 0.3720703125
+    }
+  ],
+  "length_sweep_distinct_pairs": {
+    "64": {
+      "pairs": 500,
+      "max_overlap": 0.026131412055376595,
+      "median_overlap": 1.1699394775128228e-35
+    },
+    "192": {
+      "pairs": 500,
+      "max_overlap": 0.01539116837862307,
+      "median_overlap": 5.051301394904008e-35
+    },
+    "1024": {
+      "pairs": 500,
+      "max_overlap": 0.01825954016114776,
+      "median_overlap": 5.019855062073929e-13
+    },
+    "4096": {
+      "pairs": 500,
+      "max_overlap": 0.02776876445983589,
+      "median_overlap": 1.0350776824486592e-13
+    }
+  },
+  "runtime_seconds": 273.5,
+  "circuit_check_note": "distinct_hardest rows are the 12 highest-overlap distinct pairs in the full 4,000,000-pair matrix (patched in by circuit_hardest.py after an indexing fix in exp_dedup.py); duplicate rows are 12 of the 200 planted duplicates."
+}
